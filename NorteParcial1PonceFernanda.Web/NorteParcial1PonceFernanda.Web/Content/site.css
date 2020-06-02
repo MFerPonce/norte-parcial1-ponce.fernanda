@@ -10,10 +10,17 @@ h1, h2, h3, p {
 img {
    
     border: none;
-    width: 20%;
-    height: 20%;
+    margin-left:auto;
+    margin-right: auto;
+    width:50%
 }
 
+.centrado {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%
+}
 
 p {
     text-align: justify;
@@ -56,3 +63,5 @@ footer {
     footer p {
         text-align: center
     }
+
+

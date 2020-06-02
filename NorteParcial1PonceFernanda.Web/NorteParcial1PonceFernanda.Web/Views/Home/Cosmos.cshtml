@@ -23,8 +23,8 @@
         <tr>
             <th></th>
             <td>
-                <input id="btnGrabar" type="button" value="Grabar" class="button-success color-success" />
-                <input id="btnListar" type="button" value="Listar" class="button-default color-default" />
+                <input id="btnGrabar" type="button" value="Grabar" />
+                <input id="btnListar" type="button" value="Listar" />
             </td>
         </tr>
     </table>
@@ -38,7 +38,35 @@
 {
     <script>
 
-        var constelaciones = new array
+        var constelaciones = new Array()
+
+        function constelacion() {
+
+            this.setSiglo = function (value) { this._siglo = value; }
+            this.setNombre = function (value) { this._nombre = value; }
+            this.getSiglo = function () { return this._siglo; }
+            this.getNombre = function () { return this._nombre;}
+        }
+
+        $("#btnGrabar").click(function () {
+
+            var c = new constelacion();
+            c.setSiglo($("#txtSiglo").val());
+            c.setNombre($("#txtNombre").val());
+
+            constelaciones.push (c);
+            $("#txtCodigo").val("");
+            $("#txtNombre").val("");
+        });
+
+        $("#btnListar").click(function () {
+
+            var ctl = $("#lista");
+            ctl.html("");
+            $.each(constelaciones, function (i, e) {
+                ctl.append("Siglo: " + e.getSiglo() + " - " + "Nombre: " + e.getNombre() + "<br />");
+            });
+        });
 
     </script>
     
